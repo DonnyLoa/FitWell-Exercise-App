@@ -101,6 +101,20 @@ def submitted_form():
     comments = request.form['comments']
 
     return render_template(
+        'index.html',
+        name=name,
+        email=email,
+        site=site,
+        comments=comments)
+
+@app.route('/submitted', methods=['GET'])
+def submitted_form():
+    name = request.form['name']
+    email = request.form['email']
+    site = request.form['site_url']
+    comments = request.form['comments']
+
+    return render_template(
         'submitted_form.html',
         name=name,
         email=email,
