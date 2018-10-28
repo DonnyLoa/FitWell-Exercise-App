@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>FitWell App</title>
+    <link type="text/css" rel="stylesheet" href="stylesheet/fitwell.css">
+  </head>
+  <body>
+    <div class="whole-page">
+      <h1 id="title">FitWell Exercise</h1>
+      <form class="" action="index.html" method="post">
+        <button type="submit" name="button">Submit</button>
+      </form>
+
+      <strong>Name</strong>: {{name}} <br>
+      <strong>Email</strong>: {{email}} <br>
+      <strong>Website URL</strong>: {{site}} <br>
+      <strong>Comments</strong>: {{comments}}
+
+      <form method="post" action="{{ url_for('exercise_results') }}">
+        <label for="name">Name:</label>
+        <input type="text" name="name"><br />
+        <label for="email">Email address:</label>
+        <input type="email" name="email"><br />
+        <label for="site_url">Website URL:</label>
+        <input type="url" name="site_url"><br />
+        <label for="comments">Comments:</label>
+        <textarea name="comments"></textarea><br />
+        <input type="submit">
+        <button type="button" name="button">Return to Search</button>
+      </form>
+
+    </div>
+
+  </body>
+</html>
