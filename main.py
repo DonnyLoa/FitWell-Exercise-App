@@ -115,7 +115,7 @@ def submitted_form():
     comments = request.form['comments']
 
     return render_template(
-        'submitted_form.html',
+        'exercise_results.html',
         name=name,
         email=email,
         site=site,
