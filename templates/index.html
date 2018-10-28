@@ -10,11 +10,8 @@
 
       <h1 id="title">FitWell Exercise</h1>
       <p>Testing</p>
-      <form class="" action="index.html" method="post">
-        <button type="submit" name="button">Submit</button>
-      </form>
 
-      <form method="post" action="{{ url_for('exercise_results') }}">
+      <form method="post" action="exercise_results.html">
         <label for="name">Name:</label>
         <input type="text" name="name"><br />
         <label for="email">Email address:</label>
@@ -24,6 +21,7 @@
         <label for="comments">Comments:</label>
         <textarea name="comments"></textarea><br />
         <input type="submit">
+        <button type="submit" name="button">Submit</button>
       </form>
 
     </div>
