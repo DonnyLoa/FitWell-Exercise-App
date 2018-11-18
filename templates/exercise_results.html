@@ -3,26 +3,20 @@
   <head>
     <meta charset="utf-8">
     <title>FitWell App</title>
-    <link type="text/css" rel="stylesheet" href="stylesheet/fitwell.css">
+    <link type="text/css" rel="stylesheet" href="../stylesheet/fitwell.css">
   </head>
   <body>
     <div class="whole-page">
       <h1 id="title">FitWell Exercise</h1>
 
       <strong>Name</strong>: {{name}} <br>
-      <strong>Email</strong>: {{email}} <br>
-      <strong>Website URL</strong>: {{site}} <br>
-      <strong>Comments</strong>: {{comments}}
+      <strong>Category</strong>: {{category}} <br>
 
       <form method="post" action="index.html">
         <label for="name">Name:</label>
         <input type="text" name="name"><br />
-        <label for="email">Email address:</label>
-        <input type="email" name="email"><br />
-        <label for="site_url">Website URL:</label>
-        <input type="url" name="site_url"><br />
-        <label for="comments">Comments:</label>
-        <textarea name="comments"></textarea><br />
+        <label for="category">Category:</label>
+        <input type="category" name="category"><br/>
         <!-- <input type="submit"> -->
         <!-- <button type="submit" name="button">Submit</button> -->
         <button type="submit" name="button">Return to Search</button>

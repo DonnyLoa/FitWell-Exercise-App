@@ -96,30 +96,22 @@ def form():
 @app.route('/submitted', methods=['POST'])
 def submitted_form():
     name = request.form['name']
-    email = request.form['email']
-    site = request.form['site_url']
-    comments = request.form['comments']
+    category = request.form['category']
 
     return render_template(
         'index.html',
         name=name,
-        email=email,
-        site=site,
-        comments=comments)
+        category=category)
 
 @app.route('/submitted', methods=['GET'])
 def submitted_form():
     name = request.form['name']
-    email = request.form['email']
-    site = request.form['site_url']
-    comments = request.form['comments']
+    category = request.form['category']
 
     return render_template(
         'exercise_results.html',
         name=name,
-        email=email,
-        site=site,
-        comments=comments)
+        category=category)
 
 # Entity employee = new Entity("Employee", "asalieri");
 # employee.setProperty("firstName", "Antonio");

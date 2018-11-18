@@ -3,26 +3,208 @@
   <head>
     <meta charset="utf-8">
     <title>FitWell App</title>
-    <link type="text/css" rel="stylesheet" href="stylesheet/fitwell.css">
+    <link type="text/css" rel="stylesheet" href="../stylesheet/fitwell.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+    <script>
+      WebFont.load({
+        google: {
+          families: ['Open+Sans:300,400,600', 'Droid+Serif:400,700', 'Kalam', 'Cinzel']
+        }
+      });
+    </script>
   </head>
   <body>
     <div class="whole-page">
 
       <h1 id="title">FitWell Exercise</h1>
 
-      <form method="post" action="exercise_results.html">
-        <label for="name">Name:</label>
-        <input type="text" name="name"><br />
-        <label for="email">Email address:</label>
-        <input type="email" name="email"><br />
-        <label for="site_url">Website URL:</label>
-        <input type="url" name="site_url"><br />
-        <label for="comments">Comments:</label>
-        <textarea name="comments"></textarea><br />
+      <form class="filters" method="post" action="exercise_results.html">
+        <label id="name" for="name">Please enter your name:</label>
+        <input type="text" name="name"><br/>
+        <label id="category"  for="category">Please enter the category:</label>
+        <input type="category" name="category"><br/>
+        <select name="difficulty" class="btn btn-secondary dropdown-toggle DropDown" id="category" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <option value="" disabled selected>Select Difficulty</option>
+          <option value="Easy">Easy</option>
+          <option value="Less Easy">Less Easy</option>
+          <option value="Waaaayyy Less Easy">Waaaayyy Less Easy</option>
+        </select>
+        <label><table>
+        </table></label>
         <!-- <input type="submit"> -->
+        <button id="submit" type="submit" name="button">Submit Your Filter</button>
       </form>
 
     </div>
 
+    <div class="input-field col s12">
+        <select name="category" class="btn btn-secondary dropdown-toggle DropDown" id="category" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <option value="" disabled selected>Choose your Category</option>
+          <option value="Animals">Science and Nature</option>
+          <option value="Geography">Geography</option>
+        </select>
+        <label><table>
+        </table></label>
+      </div>
+      <br>
+      <div class="input-field col s12">
+        <select name="difficulty" class="btn btn-secondary dropdown-toggle DropDown" id="category" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <option value="" disabled selected>Select Body Region</option>
+          <option value="Arms">Arms</option>
+          <option value="Stomach">Stomach</option>
+          <option value="Legs">Legs</option>
+        </select>
+        <label><table>
+        </table></label>
+    </div>
+
+    <!-- <div class="o-main">
+      <form action="">
+        <button class="js-form-btn c-btn c-btn--medium c-btn--border c-btn--green">
+          <span class="c-spinner"></span>
+          <span class="c-btn__text">Submit</span>
+        </button>
+      </form>
+    </div>
+
+    <script type="text/javascript">
+      const main = document.querySelector('.o-main');
+
+      const deactivateSpinner = (formButton, btnOriginalHeight, btnOriginalWidth, errorStatus) => {
+      const btnText = formButton.querySelector('.c-btn__text');
+      const spinner =
+
+      // Step 1
+      Velocity(spinner, {
+        opacity: 0,
+        visibility: 'hidden',
+        zIndex: '-1',
+      }, {
+        duration: 100,
+      });
+
+      // Step 1.5
+      Velocity(formButton, {
+        borderRadius: '40px',
+      }, {
+        duration: 50,
+      });
+
+      //   // Step 2
+      Velocity(formButton, {
+        height: `${btnOriginalHeight}px`,
+        width: `${btnOriginalWidth}px`,
+      }, {
+        duration: 200,
+      });
+
+      //   // Step 3
+      Velocity(formButton, {
+        backgroundColor: statusColor,
+        borderColor: statusColor,
+      }, {
+        duration: 100,
+        complete: () => {
+          if (errorStatus) {
+            formButton.classList.add('has-error');
+            btnText.innerText = 'Error';
+          } else {
+            btnText.innerText = 'Done';
+          }
+        },
+      });
+
+      Velocity(btnText, {
+        opacity: 1,
+      }, {
+        duration: 100,
+      });
+      }
+
+      const submitForm = (formButton, btnOriginalHeight, btnOriginalWidth) => {
+      axios({
+        method: 'POST',
+        url: 'https://httpbin.org/post1',
+        data: {
+          fname: 'Ryan',
+        }
+      }).then(function(response) {
+        console.log('response', response);
+        deactivateSpinner(formButton, btnOriginalHeight, btnOriginalWidth, 0);
+      }).catch(function (error) {
+        console.log('error', error);
+        deactivateSpinner(formButton, btnOriginalHeight, btnOriginalWidth, 1);
+      });
+      //deactivateSpinner(formButton, btnOriginalHeight, btnOriginalWidth);
+      };
+
+      const activateSpinner = (formButton) => {
+      const btnText = formButton.querySelector('.c-btn__text');
+      const spinner = formButton.querySelector('.c-spinner');
+
+      const btnOriginalHeight = formButton.offsetHeight;
+      const btnOriginalWidth = formButton.offsetWidth;
+
+      // Step 1
+      Velocity(formButton, {
+        backgroundColor: 'transparent',
+        borderColor: 'hsla(204, 32%, 85%, 1)',
+      }, {
+        duration: 100,
+      });
+
+      Velocity(btnText, {
+        opacity: 0,
+      }, {
+        duration: 100,
+      });
+
+      // Step 2
+      Velocity(formButton, {
+        borderRadius: '50%',
+        height: '100px',
+        width: '100px',
+      }, {
+        duration: 400,
+      });
+
+      //   // Step 2.5
+      //   // Velocity(formButton, {
+      //   //   'border-radius': '50%',
+      //   // }, {
+      //   //   duration: 100,
+      //   // });
+
+      //   // Step 3
+      Velocity(spinner, {
+        opacity: 1,
+        visibility: 'visible',
+        zIndex: '1',
+      }, {
+        delay: 600,
+        duration: 1000,
+        complete: () => {
+          setTimeout(function() {
+            submitForm(formButton, btnOriginalHeight, btnOriginalWidth);
+          }, 3000);
+        },
+      });
+      };
+
+      const clickSubmit = (formButton) => {
+      activateSpinner(formButton);
+      };
+
+      const handleMainClick = e => {
+      e.preventDefault();
+
+      if (e.target.classList.contains('js-form-btn')) {
+        clickSubmit(e.target);
+      }
+      };
+
+      main.addEventListener('click', handleMainClick);
+
+    </script> -->
   </body>
 </html>

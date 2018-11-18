@@ -1,4 +1,6 @@
 .whole-page {
+  top: 0px;
+  left: 0px;
   position: absolute;
   width: 100%;
   height: 100%;
@@ -6,7 +8,147 @@
 }
 
 #title {
+  top: 50%;
   width: 100%;
   text-align: center;
-  top: 50%;
+
+}
+
+.filters {
+  width: 100%;
+  margin-top: 250px;
+  text-align: center;
+}
+
+#name {
+  /* position: absolute; */
+  padding-top: 10px;
+  margin-top: 10px;
+}
+
+#category {
+  /* position: absolute; */
+  padding-top: 10px;
+}
+
+#submit {
+  /* position: absolute; */
+  padding-top: 10px;
+}
+
+.DropDown{
+ background-color: transparent !important;
+ font-family: 'Roboto Mono', monospace !important;
+
+}
+
+.dropdown-item:hover{
+  color:blue;
+
+padding-left: 2px;
+
+}
+
+/* Start Button */
+.btn {
+    border: none;
+    background-color: inherit;
+    padding: 14px 28px;
+    font-size: 16px;
+    cursor: pointer;
+    display: inline-block;
+    font-family: 'Roboto Mono', monospace;
+}
+
+.btn:hover {background: #222;}
+
+.start {color: #39FF14;}
+
+/* =Variables
+------------------------------------- */
+// Colors
+$pure-white: hsla(0, 0%, 100%, 1); // #fff
+$pure-black: hsla(0, 0%, 0%, 1); // #000
+$grey-dark: hsla(0, 0%, 25%, 1); // #404040
+$white-dark: hsla(0, 0%, 95%, 1); /// #f1f1f1
+$fuel-yellow: hsla(36, 100%, 49%, 1); // #f89500
+$kashmir-blue: hsla(206, 29%, 45%, 1); // #527996
+// $botticelli: hsla(204, 32%, 85%, 1); // #cbdae4
+
+// Fonts
+$droid-serif: 'Droid Serif', serif;
+$kalam: 'Kalam', cursive;
+$open-sans: 'Open Sans', sans-serif;
+
+// transition
+$transition: .5s cubic-bezier(.77, 0, .175, 1);
+$transition-fast: .2s cubic-bezier(.77, 0, .175, 1);
+
+/* =Functions
+------------------------------------- */
+// Convert a pixel value to REM units
+@function rem($pixel) {
+  @return $pixel / 16 + rem;
+}
+
+/* =Placeholder
+------------------------------------- */
+%list-reset {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+%button-reset {
+  // background-color: transparent;
+  margin: 0;
+  outline: unset;
+  padding: 0;
+  text-decoration: none;
+}
+
+/* =Styles
+------------------------------------- */
+body {
+  background-color: hsla(0, 0%, 22%, 1);
+}
+
+.o-main {
+  align-items: center;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  width: 100vw;
+}
+
+.c-btn {
+  @extend %button-reset;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.c-btn--medium {
+  border-radius: rem(50);
+  height: rem(70);
+  width: rem(250);
+}
+
+.c-btn--green {
+  background-color: $kashmir-blue;
+  border-color: $kashmir-blue;
+  color: $pure-white;
+
+  &:hover {
+    background-color: #5A6A87;
+    color: lightgray;
+  }
+
+  .c-btn--border {
+    background-color: #5A6A87;
+  }
+}
+
+.c-btn__text {
+  pointer-events: none;
 }
